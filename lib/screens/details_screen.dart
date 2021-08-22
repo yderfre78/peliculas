@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas/widgets/widgets.dart';
 
 class DetailsScreen extends StatelessWidget {
   @override
@@ -12,7 +13,8 @@ class DetailsScreen extends StatelessWidget {
         slivers: [
           _CustomAppBar(),
           SliverList(
-            delegate: SliverChildListDelegate([_PosterAndTitle()]),
+            delegate: SliverChildListDelegate(
+                [_PosterAndTitle(), _OverView(), _OverView(), CastinCards()]),
           )
         ],
       ),
@@ -103,11 +105,18 @@ class _PosterAndTitle extends StatelessWidget {
 }
 
 class _OverView extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(''),
+      padding: EdgeInsets.symmetric(
+        horizontal: 30.0,
+        vertical: 10,
+      ),
+      child: Text(
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget odio sapien. Nunc pulvinar lobortis venenatis. Curabitur ornare facilisis lorem, ut luctus massa rhoncus ac. Cras suscipit felis eget ullamcorper fringilla. Donec tempus in urna id porta. Donec pulvinar lacinia dolor nec eleifend. Nam elementum, nulla eu congue pulvinar, purus ligula maximus nibh, vel congue diam magna sit amet metus.',
+        textAlign: TextAlign.justify,
+        style: Theme.of(context).textTheme.subtitle1,
+      ),
     );
   }
 }
