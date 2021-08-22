@@ -50,6 +50,7 @@ class _MoviePoster extends StatelessWidget {
               child: FadeInImage(
                 placeholder: AssetImage('assets/no-image.jpg'),
                 image: NetworkImage('https://via.placeholder.com/300x400'),
+                width: 150,
               ),
             ),
           ),
