@@ -37,8 +37,8 @@ class _MoviePoster extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 130,
-      height: 190,
+      width: 110,
+      height: 160,
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Column(
         children: [
