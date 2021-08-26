@@ -32,6 +32,8 @@ class Movie {
   bool video;
   double voteAverage;
   int voteCount;
+  String? heroId;
+
   get fullPostrImg {
     if (this.posterPath != null)
       return 'https://image.tmdb.org/t/p/w500${this.posterPath}';

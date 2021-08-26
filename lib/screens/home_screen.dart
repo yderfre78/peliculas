@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Pelicuals en cine'),
+          title: Text('Películas en Cartelera'),
           elevation: 0,
           centerTitle: true,
           actions: [

@@ -25,7 +25,6 @@ class _MovieSliderState extends State<MovieSlider> {
       if (scrollController.position.pixels >=
           scrollController.position.maxScrollExtent - 500) {
         widget.onNextPage();
-    
       }
     });
     super.initState();
@@ -62,6 +61,7 @@ class _MovieSliderState extends State<MovieSlider> {
               itemCount: widget.movies.length,
               itemBuilder: (_, int index) => _MoviePoster(
                 widget.movies[index],
+                '${widget.title}-$index-${widget.movies[index].id}',
               ),
             ),
           )
@@ -73,26 +73,30 @@ class _MovieSliderState extends State<MovieSlider> {
 
 class _MoviePoster extends StatelessWidget {
   final Movie movie;
-
-  const _MoviePoster(this.movie);
+  final String heroId;
+  const _MoviePoster(this.movie, this.heroId);
 
   @override
   Widget build(BuildContext context) {
+    movie.heroId = heroId;
     return Container(
       width: 110,
-      height: 160,
+      height: 190,
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Column(
         children: [
           GestureDetector(
             onTap: () =>
                 Navigator.pushNamed(context, 'details', arguments: movie),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: FadeInImage(
-                placeholder: AssetImage('assets/no-image.jpg'),
-                image: NetworkImage(movie.fullPostrImg),
-                width: 150,
+            child: Hero(
+              tag: movie.heroId!,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: FadeInImage(
+                  placeholder: AssetImage('assets/no-image.jpg'),
+                  image: NetworkImage(movie.fullPostrImg),
+                  width: 150,
+                ),
               ),
             ),
           ),
